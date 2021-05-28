@@ -1,0 +1,101 @@
+=abs-full
+	position: absolute
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+
+=abs-center
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+
+=placeholder($color)
+	&::placeholder
+		color: $color
+	&::-webkit-input-placeholder
+		color: $color
+	&::-moz-placeholder
+		color: $color
+	&:-moz-placeholder
+		color: $color
+	&:-ms-input-placeholder
+		color: $color
+	&::-ms-input-placeholder
+		color: $color
+
+=desktop-large
+	@media (min-width: $desktopWidth + 1px)
+		@content
+
+=desktop
+	@media (max-width: $desktopWidth)
+		@content
+
+=desktop-small
+	@media (max-width: $desktopSmallWidth)
+		@content
+
+=desktop-small-height
+	@media (min-width: $tabletWidth + 1px) and (max-height: $desktopSmallHeight)
+		@content
+
+=tablet
+	@media (max-width: $tabletWidth)
+		@content
+
+=tablet-portrait
+	@media (max-width: $tabletWidth) and (orientation: portrait)
+		@content
+
+=tablet-landscape
+	@media (max-width: $tabletWidth) and (orientation: landscape)
+		@content
+
+=phone
+	@media (max-width: $phoneWidth)
+		@content
+
+=phone-portrait
+	@media (max-width: $phoneWidth) and (orientation: portrait)
+		@content
+
+=phone-landscape
+	@media (max-width: $phoneWidth) and (orientation: landscape)
+		@content
+
+=phone-small
+	@media (max-width: $phoneSmallWidth)
+		@content
+
+=phone-small-portrait
+	@media (max-width: $phoneSmallWidth) and (orientation: portrait)
+		@content
+
+=phone-small-landscape
+	@media (max-width: $phoneSmallWidth) and (orientation: landscape)
+		@content
+
+=bg-center
+	background: no-repeat center
+
+=icon
+	@include bg-center
+	background-size: contain
+
+=img-bg
+	@include bg-center
+	background-size: cover
+
+@function tmpPath()
+	@return 'tmpDir'
+
+@function img($img)
+	@return url('#{tmpPath()}/img/#{$img}')
+
+@function svg($svg)
+	@return url('#{tmpPath()}/svg/#{$svg}')
+
+@function font($fontName)
+	@return url('#{tmpPath()}/fonts/#{$fontName}')
